@@ -100,9 +100,7 @@ def upload_file(request):
 
 # File download and decryption API
 @api_view(["GET"])
-def download_file(request):
-    s3_key = request.GET.get('s3_key')
-    
+def download_file(request, s3_key):
     if not s3_key:
         return JsonResponse({"error": "S3 key is required"}, status=400)
     
